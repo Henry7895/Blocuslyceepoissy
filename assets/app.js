@@ -135,11 +135,7 @@
         setTimeout(() => { location.href = url.href; }, 260);
       };
 
-      if (document.startViewTransition) {
-        document.startViewTransition(() => { location.href = url.href; });
-      } else {
-        navigate();
-      }
+      navigate();
     });
   });
 
