@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id":"actu-2026-10-01-poissy",
+    "title":"1er octobre : incidents et présence des forces de l'ordre signalés à Poissy",
+    "date":"2026-10-01T20:00:00+02:00",
+    "summary":"Des incidents liés à la mobilisation lycéenne ont été rapportés à Poissy le 1er octobre 2026. Les modalités précises et l'évolution de la situation doivent être vérifiées auprès des sources officielles.",
+    "schoolIds":["le-corbusier","charles-de-gaulle"],
+    "source":"Le Parisien",
+    "sourceUrl":"https://www.leparisien.fr/societe/direct-lycees-bloques-lyon-pantin-lille-le-mouvement-se-poursuit-ce-jeudi-pour-lacte-deux-01-10-2026-MX2MVV5YNNAJDLBEYTS7KCDROQ.php",
+    "updatedAt":"2026-10-02T14:00:00+02:00"
+  }
+]
