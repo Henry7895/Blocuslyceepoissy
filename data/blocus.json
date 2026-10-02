@@ -1,30 +1,23 @@
 [
   {
-    "id":"demo-1",
-    "schoolId":"le-corbusier",
-    "title":"Aucun événement confirmé",
-    "date":null,
-    "time":null,
-    "location":null,
-    "status":"À CONFIRMER",
-    "description":"Aucun blocus ou mobilisation n'est actuellement renseigné comme confirmé dans les données du site.",
-    "updatedAt":"2026-10-02T14:00:00+02:00",
-    "source":"Aucune source confirmée",
-    "confirmation":"non-verifie",
-    "demo":true
-  },
-  {
-    "id":"demo-2",
-    "schoolId":"charles-de-gaulle",
-    "title":"Aucun événement confirmé",
-    "date":null,
-    "time":null,
-    "location":null,
-    "status":"À CONFIRMER",
-    "description":"Aucun blocus ou mobilisation n'est actuellement renseigné comme confirmé dans les données du site.",
-    "updatedAt":"2026-10-02T14:00:00+02:00",
-    "source":"Aucune source confirmée",
-    "confirmation":"non-verifie",
-    "demo":true
+    "id": "mega-manifestation-2026-10-17",
+    "schoolId": "le-corbusier",
+    "title": "Grande manifestation inter-lycées Le Corbusier ↔ Charles-de-Gaulle",
+    "date": "2026-10-17",
+    "time": null,
+    "location": "Entre le lycée Le Corbusier et le lycée Charles-de-Gaulle, Poissy",
+    "status": "À CONFIRMER",
+    "description": "Une mobilisation inter-lycées le samedi 17 octobre 2026 est signalée comme devant relier les deux établissements. Les modalités précises, l'horaire et le parcours restent à confirmer.",
+    "updatedAt": "2026-10-02T14:00:00+02:00",
+    "source": "Signalement initial non vérifié ; aucune confirmation publique fiable retrouvée à ce stade.",
+    "confirmation": "à-confirmer",
+    "tags": [
+      "inter-lycées",
+      "manifestation"
+    ],
+    "possibleParticipants": [
+      "Gilets jaunes",
+      "CGT"
+    ]
   }
 ]
