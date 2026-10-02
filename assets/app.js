@@ -74,36 +74,6 @@
     document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
   }
 
-  // Pointer spotlight for glass surfaces
-  if (!reduceMotion) {
-    document.addEventListener("pointermove", e => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      root.style.setProperty("--mx", x + "%");
-      root.style.setProperty("--my", y + "%");
-    }, {passive:true});
-
-    document.querySelectorAll(".card,.hero-visual,.notice,.rating").forEach(el => {
-      el.addEventListener("pointermove", e => {
-        const r = el.getBoundingClientRect();
-        el.style.setProperty("--spot-x", ((e.clientX-r.left)/r.width*100).toFixed(1)+"%");
-        el.style.setProperty("--spot-y", ((e.clientY-r.top)/r.height*100).toFixed(1)+"%");
-
-        if (el.classList.contains("card") && !el.classList.contains("event-card")) {
-          const dx = (e.clientX - (r.left + r.width/2)) / r.width;
-          const dy = (e.clientY - (r.top + r.height/2)) / r.height;
-          el.style.transform = `translateY(-8px) scale(1.012) rotateX(${(-dy*2.2).toFixed(2)}deg) rotateY(${(dx*2.2).toFixed(2)}deg)`;
-          el.style.transformOrigin = "center";
-        }
-      });
-      el.addEventListener("pointerleave", () => {
-        if (el.classList.contains("card") && !el.classList.contains("event-card")) {
-          el.style.transform = "";
-        }
-      });
-    });
-  }
-
   // Ripple interaction
   if (!reduceMotion) {
     document.querySelectorAll(".btn,.icon-btn,.menu-btn").forEach(el => {
