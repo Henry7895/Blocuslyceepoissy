@@ -95,7 +95,7 @@ body::before{
 }
 .btn:hover::before{transform:translateX(60%) rotate(8deg)}
 .btn:hover{
-  transform:translateY(-4px) scale(1.018);
+  transform:translateY(-2px);
   box-shadow:0 14px 34px rgba(0,0,0,.2),0 0 0 1px rgba(255,255,255,.03) inset;
 }
 .btn:active{transform:translateY(-1px) scale(.97);transition-duration:.12s}
@@ -112,16 +112,16 @@ body::before{
     linear-gradient(140deg,rgba(255,255,255,.08),transparent 34%);
   opacity:0;transition:opacity .45s ease;
 }
-.card:hover::before,.hero-visual:hover::before,.notice:hover::before,.rating:hover::before{opacity:1}
+.card:hover::before,.hero-visual:hover::before,.notice:hover::before,.rating:hover::before{opacity:.55}
 .card:hover{
   transform:translateY(-8px) scale(1.012);
   box-shadow:0 26px 60px rgba(0,0,0,.22),0 0 0 1px rgba(255,255,255,.03) inset;
 }
 .card:active{transform:translateY(-2px) scale(.992);transition-duration:.13s}
-.hero-visual:hover{transform:translateY(-5px) scale(1.008);box-shadow:0 32px 80px rgba(0,0,0,.32)}
+.hero-visual:hover{transform:translateY(-3px);box-shadow:0 24px 58px rgba(0,0,0,.25)}
 .field{transition:transform .4s var(--ease-spring),box-shadow .35s ease,border-color .3s ease,background .35s ease}
 .field:hover{transform:translateY(-1px);background:rgba(255,255,255,.06)}
-.field:focus{transform:translateY(-2px) scale(1.005);box-shadow:0 0 0 4px rgba(93,168,255,.11),0 12px 25px rgba(0,0,0,.12)}
+.field:focus{transform:translateY(-1px);box-shadow:0 0 0 4px rgba(93,168,255,.11),0 12px 25px rgba(0,0,0,.12)}
 
 .page-hero,.hero{position:relative}
 .page-hero::after,.hero::after{
