@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+<title id="title">Illustration d'une mobilisation lycéenne</title>
+<desc id="desc">Illustration générique montrant un lycée, une foule avec mégaphones, des forces de l'ordre et une lumière orange. Ce visuel n'est pas une photographie de Poissy.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0a0f18"/><stop offset=".6" stop-color="#111a29"/><stop offset="1" stop-color="#1d1010"/></linearGradient>
+<linearGradient id="glow" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#ff5f56" stop-opacity=".35"/><stop offset="1" stop-color="#ffb84d" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="1200" height="700" rx="32" fill="url(#bg)"/>
+<circle cx="960" cy="150" r="170" fill="#5da8ff" opacity=".09"/>
+<circle cx="250" cy="120" r="150" fill="#ff5f56" opacity=".07"/>
+<ellipse cx="640" cy="610" rx="590" ry="170" fill="url(#glow)"/>
+<!-- school -->
+<path d="M330 365h410v190H330z" fill="#253047" stroke="#70809c" stroke-width="3"/>
+<path d="M300 365l235-105 235 105z" fill="#3a4963" stroke="#8596b5" stroke-width="3"/>
+<path d="M370 425h52v78h-52zm82 0h52v78h-52zm82 0h52v78h-52zm82 0h52v78h-52z" fill="#8db8dc" opacity=".65"/>
+<rect x="525" y="470" width="40" height="85" fill="#111927"/><text x="535" y="410" fill="#eef4ff" font-size="23" font-family="Arial" text-anchor="middle" font-weight="700">LYCÉE</text>
+<!-- crowd -->
+<g fill="#0f1521" stroke="#8a97aa" stroke-width="2">
+<circle cx="150" cy="525" r="34"/><path d="M105 610q15-70 90 0v40h-90z"/>
+<circle cx="245" cy="500" r="38"/><path d="M190 605q18-85 110 0v45H190z"/>
+<circle cx="340" cy="525" r="31"/><path d="M300 610q12-70 80 0v40h-80z"/>
+<circle cx="810" cy="520" r="35"/><path d="M760 610q15-75 100 0v45H760z"/>
+<circle cx="900" cy="490" r="39"/><path d="M845 605q18-90 110 0v45H845z"/>
+<circle cx="1000" cy="525" r="31"/><path d="M960 610q12-70 80 0v40h-80z"/>
+</g>
+<!-- megaphone -->
+<path d="M215 455l105-45 60 30-105 45z" fill="#ffb84d"/><rect x="305" y="427" width="72" height="25" rx="8" fill="#f4f7fb" transform="rotate(18 341 439)"/>
+<path d="M740 445l120-40 55 35-120 42z" fill="#5da8ff"/><rect x="840" y="421" width="60" height="23" rx="8" fill="#f4f7fb" transform="rotate(16 870 432)"/>
+<!-- police silhouettes -->
+<g fill="#182235" stroke="#687892" stroke-width="3">
+<path d="M520 585q5-100 55-100t55 100z"/><circle cx="575" cy="445" r="35"/><path d="M960 585q5-100 55-100t55 100z"/><circle cx="1015" cy="445" r="35"/>
+<path d="M530 460h90" stroke="#5da8ff" stroke-width="6"/><path d="M970 460h90" stroke="#5da8ff" stroke-width="6"/>
+</g>
+<!-- signs -->
+<g font-family="Arial" font-weight="800" text-anchor="middle">
+<rect x="115" y="370" width="150" height="58" rx="10" fill="#f4f7fb"/><text x="190" y="406" font-size="20" fill="#131a28">MOBILISATION</text>
+<rect x="885" y="350" width="190" height="62" rx="10" fill="#f4f7fb"/><text x="980" y="389" font-size="18" fill="#131a28">ILLUSTRATION</text>
+</g>
+<text x="600" y="665" fill="#c8d1e0" opacity=".8" font-size="16" font-family="Arial" text-anchor="middle">VISUEL GÉNÉRIQUE — NE REPRÉSENTE PAS UN ÉVÉNEMENT RÉEL À POISSY</text>
+</svg>
