@@ -1,22 +1,77 @@
-const state={schools:[],events:[],news:[],observations:[]};
-const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const pathPrefix=location.pathname.includes("/lycee/")?"../":"";
-const getSchool=id=>state.schools.find(s=>s.id===id);
-const fmtDate=d=>d?new Intl.DateTimeFormat("fr-FR",{dateStyle:"long"}).format(new Date(d+"T12:00:00")):"Non communiqué";
-const badge=s=>{const x=(s||"").toUpperCase();let c="gray";if(x==="CONFIRMÉ")c="good";else if(x==="EN COURS")c="red";else if(x==="À CONFIRMER")c="warn";else if(x==="ANNULÉ")c="red";else if(x==="REPORTÉ")c="violet";return '<span class="badge '+c+'">'+esc(x)+'</span>'};
-const obsFor=id=>state.observations.find(o=>o.schoolId===id);
-const stars=n=>{const v=Math.max(0,Math.min(5,Number(n)||0));return `<span class="star-rating" aria-label="${v} sur 5"><span class="star-bg">★★★★★</span><span class="star-fill" style="width:${(v/5)*100}%">★★★★★</span></span>`};
-function header(){const p=document.body.dataset.page;return \`<header class="site-header"><nav class="nav" aria-label="Navigation principale"><a class="brand" href="\${pathPrefix}index.html"><span class="brand-mark" aria-hidden="true"></span><span>Blocus Lycées Poissy</span></a><div class="nav-links" id="nav"><a href="\${pathPrefix}index.html" class="\${p==="home"?"active":""}">Accueil</a><a href="\${pathPrefix}blocus.html" class="\${p==="blocus"?"active":""}">Blocus</a><a href="\${pathPrefix}mega-manifestation.html" class="\${p==="mega"?"active":""}">17 octobre</a><a href="\${pathPrefix}lycee/le-corbusier.html">Le Corbusier</a><a href="\${pathPrefix}lycee/charles-de-gaulle.html">Charles-de-Gaulle</a><a href="\${pathPrefix}actualites.html" class="\${p==="news"?"active":""}">Actualités</a><a href="\${pathPrefix}informations.html" class="\${p==="info"?"active":""}">Informations</a></div><div class="nav-actions"><button class="icon-btn" id="theme" aria-label="Changer de thème">☾</button><button class="menu-btn" id="menu" aria-label="Ouvrir le menu" aria-expanded="false">☰</button></div></nav></header>\`}
-function footer(){return \`<footer><div class="footer-inner"><div><strong>BLOCUS LYCÉES POISSY</strong><div class="muted">Site indépendant d'information.</div></div><div class="footer-links"><a href="\${pathPrefix}index.html">Accueil</a><a href="\${pathPrefix}blocus.html">Blocus</a><a href="\${pathPrefix}mega-manifestation.html">17 octobre</a><a href="\${pathPrefix}lycee/le-corbusier.html">Le Corbusier</a><a href="\${pathPrefix}lycee/charles-de-gaulle.html">Charles-de-Gaulle</a><a href="\${pathPrefix}actualites.html">Actualités</a><a href="\${pathPrefix}informations.html">Informations</a></div></div></footer>\`}
-function eventCard(e){const s=getSchool(e.schoolId);return `<article class="card event-card reveal"><div class="card-top"><div>${badge(e.status)}<h3>${esc(s?.name||"Établissement")}</h3><strong>${esc(e.title)}</strong></div></div><div class="meta"><div>📅 <span>${fmtDate(e.date)}</span></div><div>🕐 <span>${esc(e.time||"Non communiqué")}</span></div><div>📍 <span>${esc(e.location||"Non communiqué")}</span></div></div><p class="muted">${esc(e.description)}</p>${e.possibleParticipants?.length?`<div class="notice small-notice"><strong>Participation évoquée :</strong> ${e.possibleParticipants.map(esc).join(" · ")} — <b>à confirmer</b></div>`:""}<small class="muted">Source : ${esc(e.source||"Non communiquée")} · Mise à jour : ${new Date(e.updatedAt).toLocaleString("fr-FR")}</small></article>`}
-function schoolCard(s){const o=obsFor(s.id);return \`<article class="card reveal"><span class="eyebrow">📍 \${esc(s.city)}</span><h3>\${esc(s.name)}</h3><p class="muted">\${esc(s.description)}</p>\${o?\`<div class="rating"><strong>Indice présence policière</strong><span aria-label="\${o.rating} sur 5">\${stars(o.rating)}</span><b>\${o.rating}/5</b></div><small class="muted">Indice indicatif, non officiel · \${fmtDate(o.date)}</small>\`:""}<a class="btn" href="\${pathPrefix}lycee/\${s.slug}.html">Voir les informations →</a></article>\`}
-function layout(content){document.getElementById("app").innerHTML=header()+'<main>'+content+'</main>'+footer();bind();}
-function bind(){const menu=document.getElementById("menu"),nav=document.getElementById("nav");menu?.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",open)});document.getElementById("theme")?.addEventListener("click",()=>{const light=document.documentElement.dataset.theme==="light";document.documentElement.dataset.theme=light?"":"light";localStorage.setItem("blocus-theme",light?"dark":"light")});window.addEventListener("scroll",()=>document.querySelector(".site-header")?.classList.toggle("scrolled",scrollY>8),{passive:true});const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("visible")),{threshold:.08});document.querySelectorAll(".reveal").forEach(x=>io.observe(x));}
-function home(){const mega=state.events.find(e=>e.id==="mega-manifestation-2026-10-17");layout(\`<section class="hero home-hero"><div class="container hero-grid"><div><span class="eyebrow"><span class="dot"></span> Informations publiques · mises à jour</span><h1>BLOCUS <span>LYCÉES POISSY</span></h1><p>Toutes les informations publiques concernant les mobilisations et blocus à Poissy, présentées avec leur statut, leur niveau de confirmation et leur source.</p><div class="actions"><a class="btn primary" href="blocus.html">Voir les blocus</a><a class="btn" href="mega-manifestation.html">17 octobre · informations</a></div></div><figure class="hero-visual reveal"><img loading="eager" src="https://commons.wikimedia.org/wiki/Special:FilePath/Blocus%20au%20lyc%C3%A9e%20Buffon%20%C3%A0%20Paris%2C%20le%205%20d%C3%A9cembre%202024%20%281%29.jpg?width=1400" alt="Photo d'illustration d'un blocus lycéen"><figcaption>Photo d'illustration — lycée Buffon, Paris, 5 décembre 2024. Wyslijp16 / Wikimedia Commons, CC BY 4.0. Cette photo ne représente pas Poissy.</figcaption></figure></div></section><section class="section"><div class="container"><div class="section-head"><div><h2>17 octobre</h2><p>Événement signalé, mais encore à confirmer.</p></div><a class="btn" href="mega-manifestation.html">Page dédiée</a></div><div class="grid">\${mega?eventCard(mega):'<div class="empty">Aucune information publique confirmée.</div>'}</div></div></section><section class="section"><div class="container"><div class="section-head"><div><h2>Les deux lycées</h2><p>Situation et informations par établissement.</p></div></div><div class="grid">\${state.schools.map(schoolCard).join("")}</div></div></section><section class="section"><div class="container"><div class="section-head"><div><h2>Contexte visuel</h2><p>Illustration fictive des éléments souvent associés aux mobilisations.</p></div></div><figure class="hero-visual reveal"><img loading="lazy" src="assets/manifestation.svg" alt="Illustration fictive avec un lycée, des flammes, de la fumée, des manifestants, des mégaphones et des forces de l’ordre"><figcaption>Illustration fictive — elle ne représente pas un événement réel à Poissy.</figcaption></figure></div></section><section class="section"><div class="container"><div class="notice"><strong>À retenir :</strong> les images du site illustrent le contexte général et ne constituent pas des preuves d'incidents à Poissy. Vérifiez toujours les communications officielles.</div></div></section>\`)}
-function blocus(){layout(\`<section class="page-hero"><div class="container"><span class="eyebrow">Événements</span><h1>Blocus à Poissy</h1><p class="muted">Recherche et filtres sur les événements publics renseignés.</p><div class="toolbar"><input class="field search" id="q" placeholder="Rechercher un lycée, une date, un événement…" aria-label="Rechercher"><select class="field" id="school"><option value="">Tous les lycées</option>\${state.schools.map(s=>\`<option value="\${s.id}">\${esc(s.name)}</option>\`).join("")}</select><select class="field" id="status"><option value="">Tous les statuts</option>\${["CONFIRMÉ","À CONFIRMER","EN COURS","TERMINÉ","ANNULÉ","REPORTÉ"].map(s=>\`<option>\${s}</option>\`).join("")}</select></div></div></section><section class="section"><div class="container"><div id="results" class="grid"></div></div></section>\`);const render=()=>{const q=document.getElementById("q").value.toLowerCase(),sc=document.getElementById("school").value,st=document.getElementById("status").value;const arr=state.events.filter(e=>(!sc||e.schoolId===sc)&&(!st||e.status===st)&&JSON.stringify(e).toLowerCase().includes(q));document.getElementById("results").innerHTML=arr.length?arr.map(eventCard).join(""):'<div class="empty">Aucun événement ne correspond à votre recherche.</div>';document.querySelectorAll(".reveal").forEach(x=>x.classList.add("visible"))};["q","school","status"].forEach(id=>document.getElementById(id).addEventListener("input",render));render()}
-function news(){layout(\`<section class="page-hero"><div class="container"><span class="eyebrow">Actualités</span><h1>Dernières informations</h1><p class="muted">Les informations publiées avec leur date et leur source.</p></div></section><section class="section"><div class="container">\${state.news.length?'<div class="grid three">'+state.news.map(n=>\`<article class="card reveal"><span class="muted">\${esc(new Date(n.date).toLocaleString("fr-FR"))}</span><h3>\${esc(n.title)}</h3><p class="muted">\${esc(n.summary)}</p><small>Source : \${n.sourceUrl?\`<a href="\${esc(n.sourceUrl)}" target="_blank" rel="noopener">\${esc(n.source)}</a>\`:esc(n.source||"Non communiquée")}</small></article>\`).join("")+'</div>':'<div class="empty">Aucune actualité publiée pour le moment.</div>'}</div></section>\`)}
-function info(){layout(\`<section class="page-hero"><div class="container"><span class="eyebrow">Fiabilité</span><h1>Informations et avertissement</h1><p class="muted">Une plateforme indépendante qui privilégie l'exactitude à la quantité.</p></div></section><section class="section"><div class="container grid"><article class="card"><h3>Confirmé</h3><p class="muted">Information associée à une source publique suffisamment fiable pour être présentée comme confirmée.</p></article><article class="card"><h3>À confirmer</h3><p class="muted">Information signalée mais qui n'a pas encore été suffisamment vérifiée.</p></article><article class="card"><h3>Indice indicatif</h3><p class="muted">Une note d'intensité ou de présence donnée par un signalement n'est pas une mesure officielle.</p></article><article class="card"><h3>Dernière mise à jour</h3><p class="muted">02/10/2026 à 14:00.</p></article></div></section><section class="section"><div class="container"><div class="notice">Les informations publiées peuvent évoluer. Vérifiez toujours les communications officielles des établissements et des autorités compétentes. Le site ne publie pas de données personnelles et n'est pas officiellement affilié aux établissements concernés.</div></div></section>\`)}
-function mega(){const e=state.events.find(x=>x.id==="mega-manifestation-2026-10-17");layout(\`<section class="page-hero mega-hero"><div class="container"><span class="eyebrow">17 OCTOBRE 2026 · À CONFIRMER</span><h1>Grande manifestation inter-lycées</h1><p class="muted">Une mobilisation est signalée comme devant relier le lycée Le Corbusier au lycée Charles-de-Gaulle à Poissy. Les informations précises restent à confirmer.</p></div></section><section class="section"><div class="container"><div class="grid"><article class="card"><span class="badge warn">PARCOURS</span><h3>Le Corbusier → Charles-de-Gaulle</h3><p class="muted">Le parcours général entre les deux établissements est signalé. L'itinéraire exact, l'horaire et les modalités ne sont pas communiqués de manière suffisamment fiable à ce stade.</p></article><article class="card"><span class="badge warn">PARTICIPATION À CONFIRMER</span><h3>Groupes ou organisations évoqués</h3><p class="muted">La participation éventuelle de <strong>Gilets jaunes</strong> et de la <strong>CGT</strong> est évoquée comme possibilité. Aucune confirmation fiable pour le 17 octobre n'a été retrouvée.</p></article></div><div style="margin-top:16px">\${e?eventCard(e):""}</div></div></section><section class="section"><div class="container"><div class="notice">Cette page ne confirme pas l'existence ou les modalités de la manifestation. Elle centralise un signalement en attente de vérification et indique séparément les éléments à confirmer.</div></div></section>\`)}
-function school(){const slug=location.pathname.split("/").pop().replace(".html",""),s=state.schools.find(x=>x.slug===slug),events=state.events.filter(e=>e.schoolId===s?.id),o=obsFor(s?.id);layout(\`<section class="page-hero"><div class="container"><span class="eyebrow">Lycée · \${esc(s?.city||"Poissy")}</span><h1>\${esc(s?.name||"Lycée")}</h1><p class="muted">\${esc(s?.description||"Informations publiques.")}</p>\${o?\`<div class="rating large"><div><strong>Indice de présence policière — 01/10/2026</strong><span class="muted">Signalement indicatif, non officiel</span></div><span class="stars">\${stars(o.rating)}</span><b>\${o.rating}/5</b></div>\`:""}</div></section><section class="section"><div class="container"><div class="section-head"><div><h2>Événements</h2><p>À venir, en cours, terminés ou à confirmer.</p></div></div><div class="timeline">\${events.map(e=>'<div class="timeline-item"><span class="timeline-dot"></span>'+eventCard(e)+'</div>').join("")}</div></div></section><section class="section"><div class="container"><div class="notice">Les informations liées à la sécurité ou aux interventions des forces de l'ordre sont présentées avec leur date, leur caractère indicatif et leur source.</div></div></section>\`)}
-async function init(){try{const base=pathPrefix;const [s,e,n,o]=await Promise.all(["schools.json","blocus.json","news.json","observations.json"].map(f=>fetch(base+"data/"+f).then(r=>r.json())));state.schools=s;state.events=e;state.news=n;state.observations=o;const p=document.body.dataset.page;if(p==="home")home();else if(p==="blocus")blocus();else if(p==="news")news();else if(p==="info")info();else if(p==="mega")mega();else school();const t=localStorage.getItem("blocus-theme");if(t==="light")document.documentElement.dataset.theme="light"}catch(err){document.getElementById("app").innerHTML='<main class="container section"><div class="empty">Impossible de charger les données du site.</div></main>';console.error(err)}}
-init();
+(() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem("blocus-theme");
+  if (saved === "light") root.dataset.theme = "light";
+
+  const menu = document.getElementById("menu");
+  const nav = document.getElementById("nav");
+  if (menu && nav) {
+    menu.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      menu.setAttribute("aria-expanded", String(open));
+    });
+    nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      menu.setAttribute("aria-expanded", "false");
+    }));
+  }
+
+  const theme = document.getElementById("theme");
+  if (theme) {
+    theme.addEventListener("click", () => {
+      const light = root.dataset.theme === "light";
+      root.dataset.theme = light ? "" : "light";
+      localStorage.setItem("blocus-theme", light ? "dark" : "light");
+    });
+  }
+
+  const header = document.querySelector(".site-header");
+  const onScroll = () => header?.classList.toggle("scrolled", window.scrollY > 8);
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, {threshold:0.08});
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+  }
+
+  const results = document.getElementById("event-results");
+  if (results) {
+    const cards = [...results.querySelectorAll("[data-event-card]")];
+    const query = document.getElementById("q");
+    const school = document.getElementById("school");
+    const status = document.getElementById("status");
+    const date = document.getElementById("date");
+
+    const filter = () => {
+      const q = (query?.value || "").toLocaleLowerCase("fr");
+      const s = school?.value || "";
+      const st = status?.value || "";
+      const d = date?.value || "";
+      let count = 0;
+      cards.forEach(card => {
+        const text = card.textContent.toLocaleLowerCase("fr");
+        const ok = (!q || text.includes(q))
+          && (!s || card.dataset.school === s)
+          && (!st || card.dataset.status === st)
+          && (!d || card.dataset.date === d);
+        card.hidden = !ok;
+        if (ok) count++;
+      });
+      const empty = document.getElementById("no-results");
+      if (empty) empty.hidden = count !== 0;
+    };
+
+    [query, school, status, date].filter(Boolean).forEach(el => {
+      el.addEventListener("input", filter);
+      el.addEventListener("change", filter);
+    });
+    filter();
+  }
+})();
