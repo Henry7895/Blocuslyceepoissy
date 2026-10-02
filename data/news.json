@@ -1,12 +1,52 @@
 [
   {
-    "id":"actu-2026-10-01-poissy",
-    "title":"1er octobre : incidents et présence des forces de l'ordre signalés à Poissy",
-    "date":"2026-10-01T20:00:00+02:00",
-    "summary":"Des incidents liés à la mobilisation lycéenne ont été rapportés à Poissy le 1er octobre 2026. Les modalités précises et l'évolution de la situation doivent être vérifiées auprès des sources officielles.",
-    "schoolIds":["le-corbusier","charles-de-gaulle"],
-    "source":"Le Parisien",
-    "sourceUrl":"https://www.leparisien.fr/societe/direct-lycees-bloques-lyon-pantin-lille-le-mouvement-se-poursuit-ce-jeudi-pour-lacte-deux-01-10-2026-MX2MVV5YNNAJDLBEYTS7KCDROQ.php",
-    "updatedAt":"2026-10-02T14:00:00+02:00"
+    "id": "actu-2026-10-02-yvelines",
+    "title": "Yvelines : des rassemblements interdits devant plusieurs lycées",
+    "date": "2026-10-02T08:54:00+02:00",
+    "summary": "Le préfet des Yvelines a pris des arrêtés après les heurts des jours précédents. Le Parisien indique que plusieurs établissements sont concernés par des interdictions de rassemblement, dont le lycée Le Corbusier à Poissy.",
+    "category": "Poissy / Yvelines",
+    "source": "Le Parisien",
+    "sourceUrl": "https://www.leparisien.fr/yvelines-78/blocus-des-lycees-dans-les-yvelines-deja-82-interpellations-le-prefet-interdit-des-rassemblements-02-10-2026-CT2UWZQKYVF7PIC2LT4CUHCPAA.php",
+    "updatedAt": "2026-10-02T14:00:00+02:00"
+  },
+  {
+    "id": "actu-2026-10-01-tf1",
+    "title": "Blocus des lycées : TF1 fait le point sur la journée du 1er octobre",
+    "date": "2026-10-01T23:43:00+02:00",
+    "summary": "TF1 Info a suivi la mobilisation du 1er octobre et rapporte notamment des blocages, des interventions des forces de l'ordre et les annonces du gouvernement concernant la poursuite des cours lorsque l'accueil en sécurité n'est pas possible.",
+    "category": "France",
+    "source": "TF1 Info",
+    "sourceUrl": "https://www.tf1info.fr/societe/en-direct-blocus-des-lycees-le-mouvement-se-poursuit-ce-jeudi-laurent-nunez-edouard-geffray-france-insoumise-education-les-informations-du-jeudi-1er-octobre-2026-2467363.html",
+    "updatedAt": "2026-10-02T14:00:00+02:00"
+  },
+  {
+    "id": "actu-2026-09-30-poissy",
+    "title": "À Poissy, des tirs de mortiers ont été signalés devant Le Corbusier",
+    "date": "2026-09-30T18:00:00+02:00",
+    "summary": "Le Parisien rapportait le 30 septembre que des tirs de mortiers avaient émaillé des rassemblements devant la cité scolaire Le Corbusier à Poissy dans les jours précédents.",
+    "category": "Poissy",
+    "source": "Le Parisien",
+    "sourceUrl": "https://www.leparisien.fr/yvelines-78/blocus-des-lycees-dans-les-yvelines-entre-inquietude-et-soutiens-4EY6HB7WIVGNHPLLIPJENZGDY4.php",
+    "updatedAt": "2026-10-02T14:00:00+02:00"
+  },
+  {
+    "id": "actu-2026-10-01-tf1-poissy",
+    "title": "À Poissy, un jeune condamné après des faits devant un lycée",
+    "date": "2026-10-01T21:04:00+02:00",
+    "summary": "Dans son suivi du 1er octobre, TF1 Info rapporte la condamnation d'un jeune de 18 ans par le tribunal de Versailles pour des faits commis devant le lycée Adrienne Bolland à Poissy. Cet établissement est distinct du Corbusier et de Charles-de-Gaulle.",
+    "category": "Poissy",
+    "source": "TF1 Info",
+    "sourceUrl": "https://www.tf1info.fr/societe/en-direct-blocus-des-lycees-le-mouvement-se-poursuit-ce-jeudi-laurent-nunez-edouard-geffray-france-insoumise-education-les-informations-du-jeudi-1er-octobre-2026-2467363.html",
+    "updatedAt": "2026-10-02T14:00:00+02:00"
+  },
+  {
+    "id": "actu-2026-10-01-education",
+    "title": "Cours à distance lorsque l'accueil en sécurité est empêché",
+    "date": "2026-10-01T17:12:00+02:00",
+    "summary": "TF1 Info rapporte que le ministre de l'Éducation a demandé le basculement des cours à distance dans certains lycées lorsque des blocages ou des dégradations empêchent l'accueil des élèves en sécurité.",
+    "category": "France",
+    "source": "TF1 Info",
+    "sourceUrl": "https://www.tf1info.fr/societe/blocage-des-lycees-les-cours-assures-a-distance-si-l-accueil-des-eleves-en-toute-securite-est-empeche-annonce-edouard-geffray-2467473.html",
+    "updatedAt": "2026-10-02T14:00:00+02:00"
   }
 ]
