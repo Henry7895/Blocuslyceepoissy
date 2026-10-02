@@ -193,3 +193,12 @@ a[data-transition]{-webkit-tap-highlight-color:transparent}
   body main{transition:none}
   .reveal{opacity:1;transform:none;filter:none}
 }
+
+@keyframes filterIn{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
+@supports (view-transition-name:none){
+  @view-transition{navigation:auto}
+  ::view-transition-old(root){animation:vtOut .22s ease both}
+  ::view-transition-new(root){animation:vtIn .42s var(--ease-spring) both}
+  @keyframes vtOut{to{opacity:0;filter:blur(4px);transform:scale(.99)}}
+  @keyframes vtIn{from{opacity:0;filter:blur(5px);transform:scale(.99) translateY(8px)}to{opacity:1;filter:none;transform:none}}
+}
