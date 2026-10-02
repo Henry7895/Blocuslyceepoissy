@@ -1,0 +1,30 @@
+[
+  {
+    "id":"demo-1",
+    "schoolId":"le-corbusier",
+    "title":"Aucun événement confirmé",
+    "date":null,
+    "time":null,
+    "location":null,
+    "status":"À CONFIRMER",
+    "description":"Aucun blocus ou mobilisation n'est actuellement renseigné comme confirmé dans les données du site.",
+    "updatedAt":"2026-10-02T14:00:00+02:00",
+    "source":"Aucune source confirmée",
+    "confirmation":"non-verifie",
+    "demo":true
+  },
+  {
+    "id":"demo-2",
+    "schoolId":"charles-de-gaulle",
+    "title":"Aucun événement confirmé",
+    "date":null,
+    "time":null,
+    "location":null,
+    "status":"À CONFIRMER",
+    "description":"Aucun blocus ou mobilisation n'est actuellement renseigné comme confirmé dans les données du site.",
+    "updatedAt":"2026-10-02T14:00:00+02:00",
+    "source":"Aucune source confirmée",
+    "confirmation":"non-verifie",
+    "demo":true
+  }
+]
