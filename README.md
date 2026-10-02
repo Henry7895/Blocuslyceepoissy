@@ -4,11 +4,11 @@ Blocus Lycées Poissy est un site d’information consacré aux blocus et mobili
 
 Le site permet de retrouver des informations sur les blocus, leur contexte, les établissements concernés et les événements associés, avec une interface moderne, simple et accessible sur ordinateur comme sur mobile.
 
-🎓 Informations sur les lycées
-📢 Actualités et blocus
-📍 Établissements concernés
-📰 Informations et ressources
-📱 Interface responsive
+- 🎓 Informations sur les lycées
+- 📢 Actualités et blocus
+- 📍 Établissements concernés
+- 📰 Informations et ressources
+- 📱 Interface responsive
 
 Projet indépendant réalisé dans le but de centraliser et de rendre facilement accessibles les informations concernant les mobilisations lycéennes à Poissy.
 
