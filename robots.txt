@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://henry7895.github.io/Blocuslyceepoissy/sitemap.xml
