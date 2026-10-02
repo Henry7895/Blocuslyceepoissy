@@ -1,0 +1,24 @@
+[
+  {
+    "id":"police-2026-10-01-corbusier",
+    "schoolId":"le-corbusier",
+    "date":"2026-10-01",
+    "label":"Présence policière — indice indicatif",
+    "rating":3.5,
+    "scale":5,
+    "verified":false,
+    "source":"Indice fourni comme signalement initial ; à vérifier. Des sources de presse rapportent des incidents et la présence des forces de l’ordre à Poissy le 1er octobre 2026.",
+    "sourceUrl":"https://www.leparisien.fr/societe/direct-lycees-bloques-lyon-pantin-lille-le-mouvement-se-poursuit-ce-jeudi-pour-lacte-deux-01-10-2026-MX2MVV5YNNAJDLBEYTS7KCDROQ.php"
+  },
+  {
+    "id":"police-2026-10-01-charles-de-gaulle",
+    "schoolId":"charles-de-gaulle",
+    "date":"2026-10-01",
+    "label":"Présence policière — indice indicatif",
+    "rating":2,
+    "scale":5,
+    "verified":false,
+    "source":"Indice fourni comme signalement initial ; à vérifier. Des sources de presse rapportent des incidents et la présence des forces de l’ordre à Poissy le 1er octobre 2026.",
+    "sourceUrl":"https://www.leparisien.fr/societe/direct-lycees-bloques-lyon-pantin-lille-le-mouvement-se-poursuit-ce-jeudi-pour-lacte-deux-01-10-2026-MX2MVV5YNNAJDLBEYTS7KCDROQ.php"
+  }
+]
