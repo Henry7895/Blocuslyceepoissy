@@ -166,12 +166,25 @@
         items.sort((a,b) => new Date(b.date) - new Date(a.date));
         renderNews(items);
       } catch {
-        if (track) track.innerHTML = '<a class="nav-news-card" href="actualites.html"><span class="nav-news-card-top"><small>Poissy</small><time>À la une</time></span><strong>Voir les dernières actualités du site</strong><span class="nav-news-card-source">Actualités</span></a>';
+        if (track) {
+          const fallbackUrl = new URL("../actualites.html", scriptSrc).href;
+          track.innerHTML = '<a class="nav-news-card" href="' + fallbackUrl + '"><span class="nav-news-card-top"><small>Poissy</small><time>À la une</time></span><strong>Voir les dernières actualités du site</strong><span class="nav-news-card-source">Actualités</span></a>';
+        }
       }
     };
     const move = direction => {
       if (!track) return;
       const amount = Math.max(track.clientWidth * .72, 240);
+      const atStart = track.scrollLeft <= 8;
+      const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 8;
+      if (direction > 0 && atEnd && track.scrollWidth > track.clientWidth) {
+        track.scrollTo({left:0,behavior:reduceMotion ? "auto" : "smooth"});
+        return;
+      }
+      if (direction < 0 && atStart && track.scrollWidth > track.clientWidth) {
+        track.scrollTo({left:track.scrollWidth,behavior:reduceMotion ? "auto" : "smooth"});
+        return;
+      }
       track.scrollBy({left:direction * amount,behavior:reduceMotion ? "auto" : "smooth"});
     };
     prev?.addEventListener("click",() => move(-1));
