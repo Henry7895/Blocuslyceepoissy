@@ -406,3 +406,7 @@ button,a,.field{touch-action:manipulation}
 /* Stable sharp rendering: no blur on page/illustration content. */
 .reveal,.reveal.visible{filter:none!important}
 body.page-entering main,body.page-leaving main{filter:none!important}
+
+/* The mobile menu backdrop must never appear on desktop. */
+.menu-backdrop{display:none!important}
+@media(max-width:800px){.menu-backdrop{display:block!important}}
