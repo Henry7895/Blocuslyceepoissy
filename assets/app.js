@@ -135,6 +135,62 @@
     });
   });
 
+  // Netflix-style news rail in the navigation
+  const newsRail = document.getElementById("nav-news");
+  if (newsRail) {
+    const track = document.getElementById("nav-news-track");
+    const prev = document.getElementById("nav-news-prev");
+    const next = document.getElementById("nav-news-next");
+    const scriptSrc = document.currentScript?.src || new URL("assets/app.js", location.href).href;
+    const newsUrl = new URL("../data/news.json", scriptSrc);
+    const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, ch => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[ch]));
+    const formatNewsDate = value => {
+      const d = new Date(value);
+      return Number.isNaN(d.getTime()) ? "" : new Intl.DateTimeFormat("fr-FR",{day:"2-digit",month:"short"}).format(d);
+    };
+    const renderNews = items => {
+      if (!track) return;
+      track.innerHTML = items.slice(0,6).map(item => {
+        const url = item.sourceUrl || "actualites.html";
+        const external = Boolean(item.sourceUrl);
+        return `<a class="nav-news-card" href="${escapeHtml(url)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}>` +
+          `<span class="nav-news-card-top"><small>${escapeHtml(item.category || "Poissy")}</small><time datetime="${escapeHtml(item.date)}">${escapeHtml(formatNewsDate(item.date))}</time></span>` +
+          `<strong>${escapeHtml(item.title)}</strong><span class="nav-news-card-source">${escapeHtml(item.source || "Blocus Lycées Poissy")}</span></a>`;
+      }).join("");
+    };
+    const loadNews = async () => {
+      try {
+        const response = await fetch(newsUrl.href, {cache:"no-store"});
+        if (!response.ok) throw new Error("news");
+        const items = await response.json();
+        items.sort((a,b) => new Date(b.date) - new Date(a.date));
+        renderNews(items);
+      } catch {
+        if (track) track.innerHTML = '<a class="nav-news-card" href="actualites.html"><span class="nav-news-card-top"><small>Poissy</small><time>À la une</time></span><strong>Voir les dernières actualités du site</strong><span class="nav-news-card-source">Actualités</span></a>';
+      }
+    };
+    const move = direction => {
+      if (!track) return;
+      const amount = Math.max(track.clientWidth * .72, 240);
+      track.scrollBy({left:direction * amount,behavior:reduceMotion ? "auto" : "smooth"});
+    };
+    prev?.addEventListener("click",() => move(-1));
+    next?.addEventListener("click",() => move(1));
+    let timer;
+    const startAuto = () => {
+      if (reduceMotion) return;
+      clearInterval(timer);
+      timer = setInterval(() => move(1), 4200);
+    };
+    newsRail.addEventListener("mouseenter",() => clearInterval(timer));
+    newsRail.addEventListener("mouseleave",startAuto);
+    newsRail.addEventListener("focusin",() => clearInterval(timer));
+    newsRail.addEventListener("focusout",event => { if (!newsRail.contains(event.relatedTarget)) startAuto(); });
+    newsRail.addEventListener("touchstart",() => clearInterval(timer),{passive:true});
+    newsRail.addEventListener("touchend",startAuto,{passive:true});
+    loadNews().then(startAuto);
+  }
+
   // Event filtering
   const results = document.getElementById("event-results");
   if (results) {
