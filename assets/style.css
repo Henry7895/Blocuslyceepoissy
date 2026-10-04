@@ -430,3 +430,5 @@ button,a,.field{touch-action:manipulation}
   .nav-links{left:8px!important;right:8px!important;top:calc(100% + 6px)!important}
 }
 html[data-theme="light"] .nav-links{background:rgba(255,255,255,.97)!important}
+
+.media-add-card{max-width:760px;margin:auto}.media-add-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.media-add-form textarea{grid-column:1/-1;min-height:90px;resize:vertical}.media-add-form button{justify-self:start}@media(max-width:700px){.media-add-form{grid-template-columns:1fr}.media-add-form textarea{grid-column:auto}}
