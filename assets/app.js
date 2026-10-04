@@ -13,22 +13,48 @@
     requestAnimationFrame(() => requestAnimationFrame(() => body.classList.remove("page-entering")));
   }
 
-  // Mobile navigation
+  // Mobile navigation — accessible, touch-friendly and lightweight
   const menu = document.getElementById("menu");
   const nav = document.getElementById("nav");
+  let menuBackdrop = document.getElementById("menu-backdrop");
   if (menu && nav) {
-    menu.addEventListener("click", () => {
-      const open = nav.classList.toggle("open");
-      menu.classList.toggle("is-open", open);
-      menu.textContent = open ? "×" : "☰";
-      menu.setAttribute("aria-expanded", String(open));
-    });
-    nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+    if (!menuBackdrop) {
+      menuBackdrop = document.createElement("button");
+      menuBackdrop.type = "button";
+      menuBackdrop.id = "menu-backdrop";
+      menuBackdrop.className = "menu-backdrop";
+      menuBackdrop.setAttribute("aria-label", "Fermer le menu");
+      menuBackdrop.setAttribute("tabindex", "-1");
+      menu.insertAdjacentElement("afterend", menuBackdrop);
+    }
+
+    const closeMenu = () => {
       nav.classList.remove("open");
       menu.classList.remove("is-open");
       menu.textContent = "☰";
       menu.setAttribute("aria-expanded", "false");
-    }));
+      body.classList.remove("menu-open");
+    };
+
+    const openMenu = () => {
+      nav.classList.add("open");
+      menu.classList.add("is-open");
+      menu.textContent = "×";
+      menu.setAttribute("aria-expanded", "true");
+      body.classList.add("menu-open");
+    };
+
+    menu.addEventListener("click", () => {
+      nav.classList.contains("open") ? closeMenu() : openMenu();
+    });
+    menuBackdrop.addEventListener("click", closeMenu);
+    nav.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeMenu();
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 800) closeMenu();
+    }, {passive:true});
   }
 
   // Theme toggle with micro-interaction
