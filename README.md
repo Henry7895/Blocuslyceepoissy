@@ -39,3 +39,6 @@ Aucune donnée d'événement fictive n'est publiée comme réelle. En l'absence 
 Le workflow .github/workflows/pages.yml publie automatiquement le site sur GitHub Pages à chaque modification de la branche main.
 
 Le site reste un site indépendant d'information et ne représente pas les établissements concernés.
+
+
+<!-- stability deploy marker 2026-10-04 -->
