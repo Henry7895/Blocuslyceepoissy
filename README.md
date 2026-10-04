@@ -1,4 +1,4 @@
-# Blocus Lycées Poissy
+# Blocus Lycées Poissy (INFORMATION MISE À JOUR LE : 4/10/2026
 
 Blocus Lycées Poissy est un site d’information consacré aux blocus et mobilisations dans les lycées de Poissy et des alentours.
 
