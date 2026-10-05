@@ -45,6 +45,38 @@
     "confirmation": "à-confirmer"
   },
   {
+    "id": "charles-de-gaulle-2026-10-05",
+    "schoolId": "charles-de-gaulle",
+    "title": "Manifestation au lycée Charles-de-Gaulle",
+    "date": "2026-10-05",
+    "time": null,
+    "location": "Lycée Charles-de-Gaulle, Poissy",
+    "status": "EN DIRECT",
+    "description": "Manifestation en cours au lycée Charles-de-Gaulle le lundi 5 octobre 2026. Violence : faible. Présence policière : faible.",
+    "intensity": "Faible",
+    "policePresence": "Faible",
+    "updatedAt": "2026-10-05T09:20:00+02:00",
+    "source": "Signalement local pour le site.",
+    "sourceUrl": null,
+    "confirmation": "en-direct"
+  },
+  {
+    "id": "corbusier-2026-10-05",
+    "schoolId": "le-corbusier",
+    "title": "Manifestation au lycée Le Corbusier",
+    "date": "2026-10-05",
+    "time": null,
+    "location": "Lycée Le Corbusier, Poissy",
+    "status": "EN DIRECT",
+    "description": "Manifestation en cours au lycée Le Corbusier le lundi 5 octobre 2026. Violence : moyenne. Présence policière : moyenne.",
+    "intensity": "Moyenne",
+    "policePresence": "Moyenne",
+    "updatedAt": "2026-10-05T09:20:00+02:00",
+    "source": "Signalement local pour le site.",
+    "sourceUrl": null,
+    "confirmation": "en-direct"
+  },
+  {
     "id": "charles-de-gaulle-2026-10-06",
     "schoolId": "charles-de-gaulle",
     "title": "Manifestation au lycée Charles-de-Gaulle",
