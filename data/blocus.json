@@ -77,36 +77,6 @@
     "confirmation": "en-direct"
   },
   {
-    "id": "charles-de-gaulle-2026-10-06",
-    "schoolId": "charles-de-gaulle",
-    "title": "Manifestation au lycée Charles-de-Gaulle",
-    "date": "2026-10-06",
-    "time": null,
-    "location": "Lycée Charles-de-Gaulle, Poissy",
-    "status": "CONFIRMÉ",
-    "description": "Manifestation confirmée au lycée Charles-de-Gaulle le mardi 6 octobre 2026. Intensité indiquée : modérée.",
-    "intensity": "Modérée",
-    "updatedAt": "2026-10-04T12:00:00+02:00",
-    "source": "Signalement local confirmé pour le site.",
-    "sourceUrl": null,
-    "confirmation": "confirmé"
-  },
-  {
-    "id": "corbusier-2026-10-06",
-    "schoolId": "le-corbusier",
-    "title": "Manifestation au lycée Le Corbusier",
-    "date": "2026-10-06",
-    "time": null,
-    "location": "Lycée Le Corbusier, Poissy",
-    "status": "CONFIRMÉ",
-    "description": "Manifestation confirmée au lycée Le Corbusier le mardi 6 octobre 2026. Intensité indiquée : violente.",
-    "intensity": "Violente",
-    "updatedAt": "2026-10-04T12:00:00+02:00",
-    "source": "Signalement local confirmé pour le site.",
-    "sourceUrl": null,
-    "confirmation": "confirmé"
-  },
-  {
     "id": "mega-manifestation-2026-10-17",
     "schoolId": "le-corbusier",
     "title": "Grande manifestation inter-lycées Le Corbusier ↔ Charles-de-Gaulle",
