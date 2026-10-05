@@ -128,6 +128,9 @@
 
       const navigate = () => {
         body.classList.add("page-leaving");
+        // Force une URL fraîche pour éviter qu'une ancienne version de la page
+        // soit servie depuis le cache lors d'une navigation interne.
+        url.searchParams.set("_cb", Date.now().toString());
         setTimeout(() => { location.href = url.href; }, 260);
       };
 
