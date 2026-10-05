@@ -1,5 +1,35 @@
 [
   {
+    "id": "actu-2026-10-05-corbusier-zone",
+    "title": "Un périmètre de 300 mètres autour du Corbusier interdit aux rassemblements",
+    "date": "2026-10-05T09:00:00+02:00",
+    "summary": "Un arrêté préfectoral pris le 4 octobre interdit ce lundi 5 octobre la présence et la circulation des personnes participant à des cortèges, défilés ou rassemblements dans un périmètre de 300 mètres autour de douze lycées des Yvelines, dont Le Corbusier à Poissy.",
+    "category": "Poissy / Le Corbusier",
+    "source": "Poissy – Ville de France",
+    "sourceUrl": "https://www.poissy.net/yvelines-exclusion-zone-high-schools/",
+    "updatedAt": "2026-10-05T17:40:00+02:00"
+  },
+  {
+    "id": "actu-2026-10-02-corbusier-distanciel",
+    "title": "Le Corbusier passe à l'enseignement à distance après les tensions",
+    "date": "2026-10-02T00:00:00+02:00",
+    "summary": "Selon Infos Yvelines, l'Éducation nationale a basculé l'enseignement à distance au lycée Le Corbusier de Poissy dans un contexte de tensions et d'incidents autour de l'établissement. La durée de cette mesure n'était pas encore précisée.",
+    "category": "Poissy / Le Corbusier",
+    "source": "Infos Yvelines",
+    "sourceUrl": "https://www.infosyvelines.fr/articles/yvelines-manifestations-interdites-15-lycees-2-octobre-2026",
+    "updatedAt": "2026-10-05T17:40:00+02:00"
+  },
+  {
+    "id": "actu-2026-10-03-charles-de-gaulle-petition",
+    "title": "Une pétition au Charles-de-Gaulle avait fixé son échéance au 3 octobre",
+    "date": "2026-10-03T00:00:00+02:00",
+    "summary": "Une pétition lancée le 25 septembre par des élèves du lycée Charles-de-Gaulle de Poissy contestait notamment de nouvelles contraintes liées à la restauration et à l'organisation administrative. La page annonçait une échéance au 3 octobre.",
+    "category": "Charles-de-Gaulle / Poissy",
+    "source": "Change.org",
+    "sourceUrl": "https://www.change.org/p/p%C3%A9tition-contre-les-nouvelles-contraintes",
+    "updatedAt": "2026-10-05T17:40:00+02:00"
+  },
+  {
     "id": "actu-2026-10-02-letudiant",
     "title": "Blocus des lycées : les syndicats lycéens appellent à poursuivre la mobilisation",
     "date": "2026-10-02T00:00:00+02:00",
